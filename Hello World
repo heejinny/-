@@ -1,1 +1,8 @@
-Hello World
+package com.dinfree.java.part1;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		System.out.println("Hello World!!");
+		System.out.println("202035107 권희진!");
+	}
+}
