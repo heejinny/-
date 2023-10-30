@@ -1,0 +1,18 @@
+<body>
+  <%=lg%>
+    <script>
+      function displayFileName() {
+        var fileName = $("#file").val();
+        alert(fileName);
+        $(".upload-name").val(fileName);
+      }
+    </script>
+    <form action="/upload_process" method="post" , enctype="multipart/form-data">
+      <div class="filebox">
+        <input class="upload-name" value="" placeholder="addfile">
+        <label for="file">findfile</label>
+        <input type="file" id="file" name="uploadFile" onchange="displayFileName()">
+        <p><input type="submit" value="upload"></p>
+      </div>
+    </form>
+</body>
