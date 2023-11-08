@@ -1,0 +1,52 @@
+<!-- 202035107 권희진 -->
+
+<table class="table table-bordered border-primary">
+  <thead>
+    <td>아이디</td>
+    <td>비밀번호</td>
+    <td>이름</td>
+    <td>주소</td>
+    <td>전화번호</td>
+    <td>생일</td>
+    <td>클래스</td>
+    <td>포인트</td>
+    <%if(page==='u'){%>
+      <td>수정</td>
+      <td>삭제</td>
+      <%}%>
+  </thead>
+  <%for(let i=0; i<num; i++){%>
+    <tr>
+      <td>
+        <%= list[i].loginid%>
+      </td>
+      <td>
+        <%= list[i].password%>
+      </td>
+      <td>
+        <%= list[i].name%>
+      </td>
+      <td>
+        <%= list[i].address%>
+      </td>
+      <td>
+        <%= list[i].tel%>
+      </td>
+      <td>
+        <%= list[i].birth%>
+      </td>
+      <td>
+        <%= list[i].class%>
+      </td>
+      <td>
+        <%= list[i].point%>
+      </td>
+
+      <%if(page==='u'){%>
+        <td><a href="/person/update/<%= list[i].loginid%>">수정</a></td>
+        <td><a href="/person/delete/<%= list[i].loginid%>"
+            onclick='if(confirm("정말로 삭제하시겠습니까?")==false){ return false }'>삭제</a></td>
+        <%}%>
+    </tr>
+    <%}%>
+</table>

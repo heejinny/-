@@ -1,0 +1,82 @@
+<!-- 202035107 권희진 -->
+
+<div class="container">
+  <% if(page==='create' ){ %>
+    <h2>사용자 생성</h2>
+    <form action="/person/create_process" method="post">
+      <div class="mb-3">
+        <label class="form-label" for="id">아이디</label>
+        <input class="form-control" type="text" name="loginid" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">비밀번호</label>
+        <input class="form-control" type="text" name="password" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">이름</label>
+        <input class="form-control" type="text" name="name" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">주소</label>
+        <input class="form-control" type="text" name="address" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">전화번호</label>
+        <input class="form-control" type="text" name="tel" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">생일</label>
+        <input class="form-control" type="text" name="birth" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">클래스</label>
+        <input class="form-control" type="text" name="class" style="width:300px;" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="id">포인트</label>
+        <input class="form-control" type="text" name="point" style="width:300px;" />
+      </div>
+      <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      <%} else {%>
+        <h2>사용자 정보 수정</h2>
+        <form action="/person/update_process" method="post">
+          <div class="mb-3">
+            <input class="form-control" type="hidden" name="loginid" value="<%= list[0].loginid%>">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">아이디</label>
+            <input class="form-control" type="text" name="id" value="<%= list[0].loginid%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">비밀번호</label>
+            <input class="form-control" type="text" name="password" value="<%= list[0].password%>"
+              style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">이름</label>
+            <input class="form-control" type="text" name="name" value="<%= list[0].name%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">주소</label>
+            <input class="form-control" type="text" name="address" value="<%= list[0].address%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">전화번호</label>
+            <input class="form-control" type="text" name="tel" value="<%= list[0].tel%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">생일</label>
+            <input class="form-control" type="text" name="birth" value="<%= list[0].birth%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">클래스</label>
+            <input class="form-control" type="text" name="class" value="<%= list[0].class%>" style="width:300px;" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="id">포인트</label>
+            <input class="form-control" type="text" name="point" value="<%= list[0].point%>" style="width:300px;" />
+          </div>
+          <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+          <%}%>
+        </form>
+</div>
