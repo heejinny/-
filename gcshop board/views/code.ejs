@@ -1,0 +1,44 @@
+<!-- 202035107 권희진 -->
+
+<table class="table table-bordered border-primary">
+    <thead>
+        <td>대분류</td>
+        <td>대분류명</td>
+        <td>소분류</td>
+        <td>소분류명</td>
+        <td>시작일</td>
+        <td>종료일</td>
+        <%if(page==='u'){%>
+            <td>수정</td>
+            <td>삭제</td>
+            <%}%>
+    </thead>
+    <%for(let i=0; i<num; i++){%>
+        <tr>
+            <td>
+                <%= list[i].main_id%>
+            </td>
+            <td>
+                <%= list[i].main_name%>
+            </td>
+            <td>
+                <%= list[i].sub_id%>
+            </td>
+            <td>
+                <%= list[i].sub_name%>
+            </td>
+            <td>
+                <%= list[i].start%>
+            </td>
+            <td>
+                <%= list[i].end%>
+            </td>
+
+            <%if(page==='u'){%>
+                <td><a href="/code/update/<%= list[i].main_id%>/<%= list[i].sub_id%>">수정</a></td>
+                <td><a href="/code/delete/<%= list[i].main_id%>/<%= list[i].sub_id%>"
+                        onclick='if(confirm("정말로 삭제하시겠습니까?")==false){ return false }'>삭제</a></td>
+                <%}%>
+        </tr>
+        <%}%>
+</table>

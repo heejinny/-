@@ -1,0 +1,44 @@
+<!-- 202035107 권희진 -->
+
+<table class="table table-bordered border-primary">
+  <h1>
+    <%=btname%>
+  </h1>
+  <thead>
+    <td>작성자</td>
+    <td>제목</td>
+    <td>날짜</td>
+  </thead>
+  <% for( let i=0; i < board.length; i++ ){ %>
+    <thead>
+      <td>
+        <%=board[i].name%>
+      </td>
+      <td><a href="/board/detail/<%= board[i].board_id%>/<%= pNum%>">
+          <%= board[i].title%>
+        </a>
+      </td>
+      <td>
+        <%= board[i].date%>
+      </td>
+    </thead>
+    <%}%>
+</table>
+<% var j=1; while (j <=totalPages) { if(j==pNum){ %>
+  <span style="font-weight : bold;">
+    <%=j%>
+  </span> &nbsp;&nbsp;
+  <% } else { %>
+    <span><a href="/board/view/<%=typeid%>/<%=j%>">
+        <%=j%>
+      </a></span> &nbsp;&nbsp;
+    <% } j++ } %>
+
+      <%if(auth==='01'){%>
+        <button type="button" class="btn btn-info me-md-2" style="float: right"
+          onclick="location.href='/board/create/<%=typeid%>'">글쓰기</button>
+        <%}%>
+          <%if(auth==='02' && YN[0].write_YN==='Y' ){%>
+            <button type="button" class="btn btn-info me-md-2" style="float: right"
+              onclick="location.href='/board/create/<%=typeid%>'">글쓰기</button>
+            <%}%>

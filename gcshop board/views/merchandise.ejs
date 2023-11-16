@@ -1,0 +1,67 @@
+<!-- 202035107 권희진 -->
+
+<table class="table table-bordered ">
+    <tr>
+        <td>이미지</td>
+        <td>상품이름</td>
+        <td>가격 </td>
+        <td>브랜드</td>
+        <% if (page==='u' ){ %>
+            <td>수정</td>
+            <td>삭제</td>
+            <% } %>
+    </tr>
+    <%if (category==='all' ){%>
+        <%for(let i=0; i<num; i++) {%>
+            <tr>
+                <td><img src="<%= list[i].image%>" style="width:100px;height:100px;"></td>
+                <td>
+                    <%= list[i].name%>
+                </td>
+                <td>
+                    <%= list[i].price%>
+                </td>
+                <td>
+                    <%= list[i].brand%>
+                </td>
+                <% if (page==='u' ){ %>
+                    <td>
+                        <a href="/merchandise/update/<%= list[i].mer_id %>">수정</a>
+                    </td>
+                    <td>
+                        <a href="/merchandise/delete/<%= list[i].mer_id %>"
+                            onclick='if(confirm("정말로 삭제하시겠습니까?")==false){ return false }'>삭제</a>
+                    </td>
+                    <% } %>
+            </tr>
+            <%}%>
+                <%} else {%>
+                    <%for(let i=0; i<num; i++) {%>
+                        <%if(category===list[i].category){%>
+                            <tr>
+                                <td><img src="<%= list[i].image%>" style="width:100px;height:100px;"></td>
+                                <td>
+                                    <%= list[i].name%>
+                                </td>
+                                <td>
+                                    <%= list[i].price%>
+                                </td>
+                                <td>
+                                    <%= list[i].brand%>
+                                </td>
+                                <% if (page==='u' ){ %>
+                                    <td>
+                                        <a href="/merchandise/update/<%= list[i].mer_id %>">수정</a>
+                                    </td>
+                                    <td>
+                                        <a href="/merchandise/delete/<%= list[i].mer_id %>"
+                                            onclick='if(confirm("정말로 삭제하시겠습니까?")==false){ return false }'>삭제</a>
+                                    </td>
+                                    <% } %>
+                            </tr>
+                            <%}%>
+                                <%}%>
+                                    <%}%>
+
+
+</table>

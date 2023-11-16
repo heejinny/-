@@ -1,0 +1,39 @@
+<table class="table table-bordered border-primary">
+  <thead>
+    <td>제목</td>
+    <td>페이지당 글 수</td>
+    <td>설명</td>
+    <td>일반 사용자 쓰기 가능 여부</td>
+    <td>댓글 가능 여부</td>
+    <%if(auth==='01' ){%>
+      <td>수정</td>
+      <td>삭제</td>
+      <% } %>
+  </thead>
+  <%for (let i=0; i<num; i++){%>
+    <thead>
+      <td><a href="/board/view/<%= list[i].type_id%>/1">
+          <%= list[i].title%>
+        </a>
+      </td>
+      <td>
+        <%= list[i].numPerPage%>
+      </td>
+      <td>
+        <%= list[i].description%>
+      </td>
+      <td>
+        <%= list[i].write_YN%>
+      </td>
+      <td>
+        <%= list[i].re_YN%>
+      </td>
+      <%if(auth==='01' ){%>
+        <td><a href="/board/type/update/<%= i+1 %>">수정</a></td>
+        <td><a href="/board/type/delete/<%= i+1 %>" onclick='if(confirm("정말로 삭제하시겠습니까?")==false){ return false }'>삭제</a>
+        </td>
+        <%}%>
+    </thead>
+    <%}%>
+
+</table>
